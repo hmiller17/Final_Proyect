@@ -1,5 +1,8 @@
-# Final_Proyect
+## **Diagrama de Clases**
 
+El diseño orientado a objetos se representa mediante el siguiente diagrama de clases:
+
+```mermaid
 classDiagram
 direction TB
 
