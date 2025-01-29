@@ -1,21 +1,30 @@
 # **Simulador de circuitos**
 ## **Integrantes**
-***Juan Manuel Toro Rojas
-    Hector Miller Patiño Avellaneda
-    Miguel Angel Tovar Rincón***
+***
++ Juan Manuel Toro Rojas
++ Hector Miller Patiño Avellaneda
++ Miguel Angel Tovar Rincón
+***
 
 ##  **proyecto**
 
 **Parte 1: Menú de Navegación (Imagen 1)**
 En esta parte, el usuario verá un menú principal que le permitirá seleccionar entre los tres tipos de señales: RC, RL y RLC. Este menú será la primera interfaz que el usuario encuentre al iniciar la aplicación.
 
-** Características del Menú**
-+Señal RC: Simulación de un circuito RC (Resistencia y Capacitor).
+**Características del Menu**
 
-+Señal RL: Simulación de un circuito RL (Resistencia e Inductor).
++ Señal RC: Simulación de un circuito RC (Resistencia y Capacitor).
++ Señal RL: Simulación de un circuito RL (Resistencia e Inductor).
++ Señal RLC: Simulación de un circuito RLC (Resistencia, Inductor y Capacitor).
 
-+Señal RLC: Simulación de un circuito RLC (Resistencia, Inductor y Capacitor).
+**Interfaz Gráfica (Imagen 2)** 
 
+Se utilizara una interfaz grafica sencilla en la que el usuario va a tener varias opciones al seleccionar si desea usar el circuito en paralelo o en serie, El usuario seleccionará una opción podra ingresar los datos en labels el usuario ingresará valores como:
+
++ Resistencia (R).
++ Capacitancia (C) para circuitos RC y RLC.
++ Inductancia (L) para circuitos RL y RLC.
++ Voltaje de la fuente (V).
 
 
 
