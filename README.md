@@ -1,7 +1,30 @@
 # **Simulador de circuitos**
+## **Integrantes**
+***Juan Manuel Toro Rojas
+    Hector Miller Patiño Avellaneda
+    Miguel Angel Tovar Rincón***
 
-Para este proyecto vamos a hacer un simulador de tres tipos de señales, las cuales serian señales RC, RL Y RLC. las cuales estan compuestas por resistencias (R), capacitores (C) e inductores (L), configurados en serie o en paralelo
+##  **proyecto**
 
+**Parte 1: Menú de Navegación (Imagen 1)**
+En esta parte, el usuario verá un menú principal que le permitirá seleccionar entre los tres tipos de señales: RC, RL y RLC. Este menú será la primera interfaz que el usuario encuentre al iniciar la aplicación.
+
+** Características del Menú**
++Señal RC: Simulación de un circuito RC (Resistencia y Capacitor).
+
++Señal RL: Simulación de un circuito RL (Resistencia e Inductor).
+
++Señal RLC: Simulación de un circuito RLC (Resistencia, Inductor y Capacitor).
+
+
+
+
+## **Imagenes de la GUI (Interfaz grafica)**
+![Imagen de WhatsApp 2025-01-27 a las 12 52 21_f5a31c5d](https://github.com/user-attachments/assets/61484a29-ebbb-46c7-b570-08206f9a165d)
+**Imagen 1**
+
+![Imagen de WhatsApp 2025-01-27 a las 12 52 33_0eb51c0c](https://github.com/user-attachments/assets/226167c1-2d6b-482b-88c0-8ebb5ce29fa8)
+**Imagen 2**
 
 ## **Diagrama de Clases**
 
