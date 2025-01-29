@@ -1,3 +1,8 @@
+#Simulador de circuitos
+
+Para este proyecto vamos a hacer un simulador de tres tipos de señales, las cuales serian señales RC, RL Y RLC. las cuales estan compuestas por resistencias (R), capacitores (C) e inductores (L), configurados en serie o en paralelo
+
+
 ## **Diagrama de Clases**
 
 El diseño orientado a objetos se representa mediante el siguiente diagrama de clases:
