@@ -65,7 +65,6 @@ Finalmente, el usuario podrá observar los datos del circuito en forma de gráfi
 A continuación, se presenta el diagrama de clases de la GUI:
 
 ```mermaid
-title Diagrama de clases de la Interfaz
 classDiagram
     class VentanaPrincipal {
         +abrirVentana()
