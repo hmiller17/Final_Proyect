@@ -10,7 +10,7 @@
         + [Diagrama de clases](#diagrama-de-clases-de-la-interfaz)
     + [Lógica del simulador](#parte-2-lógica-para-la-simulación-de-los-circuitos)
         + [Clases (Componentes)](#clases-componentes)
-        + [Clases (Cirrcuitos)](#clases-circuitos)
+        + [Clases (Circuitos)](#clases-circuitos)
         + [Diagrama de clases](#diagrama-de-clases)
 + [Inspiración para la interfaz](#inspiración-para-la-interfaz)
 
@@ -198,26 +198,23 @@ direction TB
         +valor: float
         +unidad: String
         +obtener_valor() : float
+        +obtener_unidad() : str
     }
 
     class Resistencia {
-        +valor: float
-        +obtener_valor()
+
     }
 
     class Capacitor {
-        +valor: float
-        +obtener_valor()
+
     }
 
     class Bobina {
-        +valor: float
-        +obtener_valor()
+
     }
 
     class FuenteDC {
-        +voltaje: float
-        +obtener_valor()
+        
     }
 
     %% Herencia de Circuito
@@ -242,6 +239,7 @@ direction TB
     Componente <|-- Capacitor
     Componente <|-- Bobina
     Componente <|-- FuenteDC
+
 ```
 
 ## **Inspiración para la interfaz**
