@@ -145,6 +145,61 @@ Para el desarrollo de la lógica del simulador, hay que tener en cuenta los fact
     + Circuito RC: Contiene una resistencia y un capacitor; calcula la carga y el tiempo de carga del capacitor.
     + Circuito RL: Contiene una resistencia y una bobina; calcula la corriente inducida y el tiempo de respuesta.
     + Circuito RLC: Contiene una resistencia, una bobina y un capacitor; calcula los mismos parámetros de las clases anteriores y la frecuencia de resonancia del circuito.
+#### **Clases (logica de calculo):**
++ *Logica de calculo* Este se encargara de que en los distintos circuitos puedan graficar la tension, impedancia  y corriente por medio de la logica de calculo de cada uno. Esto dependiendo de cada circuito(RC, RL,RLC) y sus distintos componentes.
+    + Impedancia de circuitos RC:
+           
+           XC = 1 / (2πfC)
+
+           Z = √(R² + XC²)
+
+    + Impedancia de circuitos RL:
+
+           XL = 2πfL
+
+           Z = √(R² + XL²)
+      
+      
+    + Impedancia de circuitos RLC:
+
+            XL = 2πfL y XC = 1 / (2πfC)
+ 
+            Z = √(R² + (XL - XC)²)
+     
+    + Corriente del circuito RC, RL y RCL : (I = V/z), carga es máxima y está determinada por el voltaje dividida por la impedancia en ohmios que dara resultado la corriente.
+
+           (I = V/z), Está determinada por el voltaje divididao por la impedancia en ohmios que dara resultado la corriente.
+      
+    + Tension del circuito RC:
+      
+           Tensión en la resistencia (VR): VR = I * R, donde I es la corriente y R es la resistencia.
+      
+           Tensión en el capacitor (VC): VC = Q / C, donde Q es la carga en el capacitor y C es la capacitancia.
+ 
+           En corriente alterna: VC = I * XC, donde XC es la reactancia capacitiva (XC = 1 / (2πfC)).
+      
+           Tensión total (V): V = √(VR² + VC²)
+      
+    + Corriente del circuito RL:
+      
+          Tensión en la resistencia (VR): VR = I * R
+
+          Tensión en el inductor (VL): VL = L * (dI / dt), donde L es la inductancia y dI / dt es la tasa de cambio de la corriente.
+      
+          En corriente alterna: VL = I * XL, donde XL es la reactancia inductiva (XL = 2πfL).
+      
+          Tensión total (V): V = √(VR² + VL²)
+    + Corriente del circuito RLC:
+
+          Tensión en la resistencia (VR): VR = I * R
+
+          Tensión en el inductor (VL): VL = I * XL
+
+          Tensión en el capacitor (VC): VC = I * XC
+
+          Tensión total (V): V = √(VR² + (VL - VC)²)
+
+
 
 #### **Diagrama de Clases**
 El diagrama de las clases anteriores se representa de esta manera:
