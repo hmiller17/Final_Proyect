@@ -145,60 +145,152 @@ Para el desarrollo de la lógica del simulador, hay que tener en cuenta los fact
     + Circuito RC: Contiene una resistencia y un capacitor; calcula la carga y el tiempo de carga del capacitor.
     + Circuito RL: Contiene una resistencia y una bobina; calcula la corriente inducida y el tiempo de respuesta.
     + Circuito RLC: Contiene una resistencia, una bobina y un capacitor; calcula los mismos parámetros de las clases anteriores y la frecuencia de resonancia del circuito.
+  
 #### **Clases (logica de calculo):**
-+ *Logica de calculo* Este se encargara de que en los distintos circuitos puedan graficar la tension, impedancia  y corriente por medio de la logica de calculo de cada uno. Esto dependiendo de cada circuito(RC, RL,RLC) y sus distintos componentes.
-    + Impedancia de circuitos RC:
-           
-           XC = 1 / (2πfC)
+### **Fórmulas Matemáticas**
+Las fórmulas utilizadas en las simulaciones de los circuitos son las siguientes:
 
-           Z = √(R² + XC²)
+1. **Circuito RC (Serie):**
+   - Voltaje en la resistencia:
 
-    + Impedancia de circuitos RL:
+     ![image](https://github.com/user-attachments/assets/ac0674c0-bcfa-471a-84ef-231c26db9c0d)
 
-           XL = 2πfL
+   - Voltaje en el capacitor:
 
-           Z = √(R² + XL²)
-      
-      
-    + Impedancia de circuitos RLC:
-
-            XL = 2πfL y XC = 1 / (2πfC)
- 
-            Z = √(R² + (XL - XC)²)
+     ![image](https://github.com/user-attachments/assets/fb67130d-eda4-4794-abb8-6480e19c7d92)
      
-    + Corriente del circuito RC, RL y RCL : (I = V/z), carga es máxima y está determinada por el voltaje dividida por la impedancia en ohmios que dara resultado la corriente.
+   - Corriente en el circuito:
 
-           (I = V/z), Está determinada por el voltaje divididao por la impedancia en ohmios que dara resultado la corriente.
-      
-    + Tension del circuito RC:
-      
-           Tensión en la resistencia (VR): VR = I * R, donde I es la corriente y R es la resistencia.
-      
-           Tensión en el capacitor (VC): VC = Q / C, donde Q es la carga en el capacitor y C es la capacitancia.
- 
-           En corriente alterna: VC = I * XC, donde XC es la reactancia capacitiva (XC = 1 / (2πfC)).
-      
-           Tensión total (V): V = √(VR² + VC²)
-      
-    + Corriente del circuito RL:
-      
-          Tensión en la resistencia (VR): VR = I * R
+     ![image](https://github.com/user-attachments/assets/9e9060cd-4be8-473f-b6b4-2eca4c2fb3db)
 
-          Tensión en el inductor (VL): VL = L * (dI / dt), donde L es la inductancia y dI / dt es la tasa de cambio de la corriente.
-      
-          En corriente alterna: VL = I * XL, donde XL es la reactancia inductiva (XL = 2πfL).
-      
-          Tensión total (V): V = √(VR² + VL²)
-    + Corriente del circuito RLC:
 
-          Tensión en la resistencia (VR): VR = I * R
+2. **Circuito RL (Serie):**
+   - Corriente en el circuito:
 
-          Tensión en el inductor (VL): VL = I * XL
+     ![image](https://github.com/user-attachments/assets/8b3b6c57-f114-40be-b78f-e9e320d545e6)
 
-          Tensión en el capacitor (VC): VC = I * XC
+   - Voltaje en la resistencia:
 
-          Tensión total (V): V = √(VR² + (VL - VC)²)
+     ![image](https://github.com/user-attachments/assets/cb481f2d-dab2-4dc6-a610-b2f05414d172)
 
+   - Voltaje en el inductor:
+
+     ![image](https://github.com/user-attachments/assets/42396330-c581-4f08-aef8-7ee7e09385a2)
+
+
+3. **Circuito RLC (Serie):**
+   - Corriente en el circuito:
+
+     ![image](https://github.com/user-attachments/assets/ae1be8fe-6aa8-4456-9ac2-3bcd1f57d33b)
+
+   - Voltaje en la resistencia:
+
+     ![image](https://github.com/user-attachments/assets/cbd138f7-9775-4d6a-bf58-45ee52671e89)
+
+   - Voltaje en el inductor:
+
+     ![image](https://github.com/user-attachments/assets/472076b9-3688-45e1-b9aa-7d2fae09518f)
+
+   - Voltaje en el capacitor:
+   
+     ![image](https://github.com/user-attachments/assets/cb0cd2ad-4d75-4425-aad1-7d554599f809)
+
+
+4. **Circuito RC (Paralelo):**
+   - Voltaje en el circuito:
+
+     ![image](https://github.com/user-attachments/assets/302c7ba9-6fb2-419c-bb13-70e5bcb2c130)
+
+   - Corriente en la resistencia:
+
+     ![image](https://github.com/user-attachments/assets/87788625-1f0a-4488-ab15-b17ecad02cb4)
+
+   - Corriente en el capacitor:
+
+     ![image](https://github.com/user-attachments/assets/9220f2ae-0b37-4235-b74b-6044b795c326)
+
+   - Corriente total:
+  
+     ![image](https://github.com/user-attachments/assets/84704f58-99ed-4138-aa9a-1849b5698120)
+
+
+5. **Circuito RL (Paralelo):**
+   - Voltaje en el circuito:
+
+     ![image](https://github.com/user-attachments/assets/44236adb-be49-44fd-9de1-1ecfab2fefe4)
+
+   - Corriente en la resistencia:
+  
+     ![image](https://github.com/user-attachments/assets/fbe1e169-c9c3-4cea-8815-1a890b36a9da)
+
+   - Corriente en el inductor:
+
+     ![image](https://github.com/user-attachments/assets/63bfe76a-1e2b-4c0a-9876-30daf67bcd88)
+
+   - Corriente total:
+
+     ![image](https://github.com/user-attachments/assets/6579e61d-80b7-4ad9-8bfc-153e66b3e43f)
+
+
+6. **Circuito RLC (Paralelo):**
+   - Voltaje en el circuito:
+
+    ![image](https://github.com/user-attachments/assets/9fc1721a-2c05-4d03-a062-5820e6cbc218)
+
+   - Corriente en la resistencia:
+
+     ![image](https://github.com/user-attachments/assets/7cd70d12-b437-4efb-b715-e80b27c4ec0b)
+
+   - Corriente en el inductor:
+
+     ![image](https://github.com/user-attachments/assets/b9939b67-283a-4322-a560-1c79fe0acefa)
+
+   - Corriente en el capacitor:
+
+     ![image](https://github.com/user-attachments/assets/57d0372a-7f25-4a5a-b4ca-e3374b328d85)
+
+   - Corriente total:
+
+     ![image](https://github.com/user-attachments/assets/381f2157-1142-42ad-8649-ed1cc3d6127e)
+
+
+---
+
+### **Aspectos de POO**
+El código utiliza varios conceptos de Programación Orientada a Objetos (POO) para estructurar la lógica del simulador:
+
+1. **Herencia:**
+   - Las clases `FuenteDC`, `Resistencia`, `Capacitor` e `Inductor` heredan de la clase base `Componente`. Esto permite reutilizar código y definir comportamientos comunes para todos los componentes.
+   - Las clases `CircuitoRC`, `CircuitoRL`, `CircuitoRLC`, `CircuitoRC_Paralelo`, `CircuitoRL_Paralelo` y `CircuitoRLC_Paralelo` heredan de la clase base `Circuito`. Esto permite definir comportamientos específicos para cada tipo de circuito.
+
+2. **Encapsulamiento:**
+   - Los atributos de las clases están encapsulados mediante el uso de propiedades (`@property`). Esto permite controlar el acceso y la modificación de los valores de los componentes, asegurando que no se asignen valores inválidos.
+
+3. **Polimorfismo:**
+   - Cada tipo de circuito implementa sus propios métodos para calcular voltajes y corrientes, pero todos comparten una interfaz común gracias a la herencia. Esto permite que la simulación se realice de manera uniforme, independientemente del tipo de circuito.
+
+4. **Abstracción:**
+   - La clase `Componente` es una abstracción que define los atributos y métodos comunes a todos los componentes del circuito. Las clases derivadas implementan detalles específicos.
+
+---
+
+### **Casos de Uso**
+1. **Simulación de un circuito RC en serie:**
+   - El usuario selecciona el circuito RC en el menú principal.
+   - Ingresa los valores de la resistencia, el capacitor y la fuente de voltaje.
+   - El simulador calcula y muestra las gráficas de voltaje en la resistencia, voltaje en el capacitor y corriente en el circuito.
+
+2. **Simulación de un circuito RL en paralelo:**
+   - El usuario selecciona el circuito RL en el menú principal.
+   - Ingresa los valores de la resistencia, el inductor y la fuente de voltaje.
+   - El simulador calcula y muestra las gráficas de voltaje en el circuito, corriente en la resistencia, corriente en el inductor y corriente total.
+
+3. **Guardar y cargar configuraciones:**
+   - El usuario puede guardar los valores de los componentes en un archivo JSON.
+   - Posteriormente, puede cargar estos valores para realizar una simulación sin necesidad de ingresar los datos nuevamente.
+
+4. **Cambiar entre serie y paralelo:**
+   - El usuario puede cambiar la configuración del circuito entre serie y paralelo para observar cómo afecta el comportamiento del circuito.
 
 
 #### **Diagrama de Clases**
@@ -298,6 +390,8 @@ direction TB
     Componente <|-- Bobina
     Componente <|-- FuenteDC
 ```
+
+
 
 ## **Inspiración para la interfaz**
 Un apoyo para la realización de este proyecto es una calculadora desarrollada el semestre pasado, en la que adquirimos conocimientos para programar y crear una interfaz gráfica y proyectar datos por medio de gráficos. Dicha calculadora se encuentra en el siguiente repositorio de GitHub:
