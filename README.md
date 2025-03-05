@@ -294,103 +294,173 @@ El código utiliza varios conceptos de Programación Orientada a Objetos (POO) p
 
 
 #### **Diagrama de Clases**
-El diagrama de las clases anteriores se representa de esta manera:
+### Diagrama de Lógica (Circuitos y Componentes)
 
 ```mermaid
 classDiagram
 direction TB
 
-    class Circuito {
-        +fuente: FuenteDC
-        +resistencias: list
-        +calcularCorriente() : float
-        +calcularVoltaje() : float
-        +mostrarDatos()
-        +mostrarGraficas()
-    }
-
-    class CircuitoSerie {
-        +calcular_resistencia_eq()
-    }
-
-    class CircuitoParalelo {
-        +calcular_resistencia_eq()
-    }
-
-    class CircuitoRC {
-        +capacitores: list
-        +calcularCarga() : float
-        +calcularTiempoCarga() : float
-        +mostrarDatos()
-        +mostrarGraficas()
-    }
-
-    class CircuitoRL {
-        +inductores: list
-        +calcularCorrienteInducida() : float
-        +calcularTiempoRespuesta() : float
-        +mostrarDatos()
-        +mostrarGraficas()
-    }
-
-    class CircuitoRLC {
-        +capacitores: list
-        +inductores: list
-        +calcularFrecuenciaResonancia() : float
-        +mostrarDatos()
-        +mostrarGraficas()
-    }
-
+    %% Clase base abstracta
     class Componente {
-        +valor: float
-        +unidad: String
-        +obtener_valor() : float
+        <<abstract>>
+        +_valor: float
+        +_unidad: str
+        +valor() : float
+        +valor(nuevo_valor: float)
+        +unidad() : str
+        +unidad(nueva_unidad: str)
+    }
+
+    %% Componentes concretos
+    Componente <|-- FuenteDC
+    Componente <|-- Resistencia
+    Componente <|-- Capacitor
+    Componente <|-- Inductor
+
+    class FuenteDC {
+        +__init__(valor: float, unidad="V")
     }
 
     class Resistencia {
-        +valor: float
-        +obtener_valor()
+        +__init__(valor: float, unidad="ohm")
     }
 
     class Capacitor {
-        +valor: float
-        +obtener_valor()
+        +__init__(valor: float, unidad="F")
     }
 
-    class Bobina {
-        +valor: float
-        +obtener_valor()
+    class Inductor {
+        +__init__(valor: float, unidad="H")
     }
 
-    class FuenteDC {
-        +voltaje: float
-        +obtener_valor()
+    %% Clase base abstracta para circuitos
+    class Circuito {
+        <<abstract>>
+        +fuente: FuenteDC
+        +componentes: list
+        +tiempo: ndarray
+        +__init__(fuente: FuenteDC, componentes: list, tiempo: ndarray)
     }
 
-    %% Herencia de Circuito
-    Circuito <|-- CircuitoSerie
-    Circuito <|-- CircuitoParalelo
-    CircuitoRC --|> Circuito
-    CircuitoRL --|> Circuito
-    CircuitoRLC --|> Circuito
+    %% Circuitos concretos con sus funciones
+    Circuito <|-- CircuitoRC
+    Circuito <|-- CircuitoRL
+    Circuito <|-- CircuitoRLC
+    Circuito <|-- CircuitoRC_Paralelo
+    Circuito <|-- CircuitoRL_Paralelo
+    Circuito <|-- CircuitoRLC_Paralelo
 
-    %% Relación de Circuitos específicos con sus componentes
+    class CircuitoRC {
+        +resistencia: Resistencia
+        +capacitancia: Capacitor
+        +__init__(fuente: FuenteDC, resistencia: Resistencia, capacitancia: Capacitor)
+        +voltaje_R() : ndarray
+        +voltaje_C() : ndarray
+        +corriente_Circuito() : ndarray
+    }
+
+    class CircuitoRL {
+        +resistencia: Resistencia
+        +inductancia: Inductor
+        +__init__(fuente: FuenteDC, resistencia: Resistencia, inductancia: Inductor)
+        +corriente_Circuito() : ndarray
+        +voltaje_R() : ndarray
+        +voltaje_L() : ndarray
+    }
+
+    class CircuitoRLC {
+        +resistencia: Resistencia
+        +inductancia: Inductor
+        +capacitancia: Capacitor
+        +__init__(fuente: FuenteDC, resistencia: Resistencia, inductancia: Inductor, capacitancia: Capacitor)
+        +corriente_Circuito() : ndarray
+        +voltaje_R() : ndarray
+        +voltaje_L() : ndarray
+        +voltaje_C() : ndarray
+    }
+
+    class CircuitoRC_Paralelo {
+        +resistencia: Resistencia
+        +capacitancia: Capacitor
+        +__init__(fuente: FuenteDC, resistencia: Resistencia, capacitancia: Capacitor)
+        +voltaje_Circuito() : ndarray
+        +corriente_R() : ndarray
+        +corriente_C() : ndarray
+        +corriente_Total() : ndarray
+    }
+
+    class CircuitoRL_Paralelo {
+        +resistencia: Resistencia
+        +inductancia: Inductor
+        +__init__(fuente: FuenteDC, resistencia: Resistencia, inductancia: Inductor)
+        +voltaje_Circuito() : ndarray
+        +corriente_R() : ndarray
+        +corriente_L() : ndarray
+        +corriente_Total() : ndarray
+    }
+
+    class CircuitoRLC_Paralelo {
+        +resistencia: Resistencia
+        +inductancia: Inductor
+        +capacitancia: Capacitor
+        +__init__(fuente: FuenteDC, resistencia: Resistencia, inductancia: Inductor, capacitancia: Capacitor)
+        +voltaje_Circuito() : ndarray
+        +corriente_R() : ndarray
+        +corriente_L() : ndarray
+        +corriente_C() : ndarray
+        +corriente_Total() : ndarray
+    }
+
+    %% Relaciones entre circuitos y componentes
+    CircuitoRC --> Resistencia
     CircuitoRC --> Capacitor
-    CircuitoRL --> Bobina
+    CircuitoRL --> Resistencia
+    CircuitoRL --> Inductor
+    CircuitoRLC --> Resistencia
+    CircuitoRLC --> Inductor
     CircuitoRLC --> Capacitor
-    CircuitoRLC --> Bobina
-
-    %% Relación de Circuito con sus componentes
-    Circuito --> FuenteDC
-    Circuito --> Resistencia
-
-    %% Herencia de Componente
-    Componente <|-- Resistencia
-    Componente <|-- Capacitor
-    Componente <|-- Bobina
-    Componente <|-- FuenteDC
+    CircuitoRC_Paralelo --> Resistencia
+    CircuitoRC_Paralelo --> Capacitor
+    CircuitoRL_Paralelo --> Resistencia
+    CircuitoRL_Paralelo --> Inductor
+    CircuitoRLC_Paralelo --> Resistencia
+    CircuitoRLC_Paralelo --> Inductor
+    CircuitoRLC_Paralelo --> Capacitor
 ```
+### Diagrama de Interfaz (GUI)
+```mermaid
+classDiagram
+direction TB
 
+    class VentanaPrincipal {
+        +root: tk.Tk
+        +__init__(root: tk.Tk)
+        +abrir_simulador(tipo: str, image_file: str)
+        +finalizar_programa()
+    }
+
+    class VentanaCircuito {
+        +root: tk.Tk
+        +tipo_circuito: str
+        +image_path: str
+        +parametros: dict
+        +configuracion: str
+        +__init__(root: tk.Tk, tipo: str, image_path: str)
+        +crear_campos_parametros()
+        +cargar_imagen()
+        +obtener_valores() : dict
+        +simular()
+        +mostrar_graficas(circuito: Circuito, tiempo: ndarray)
+        +serie()
+        +paralelo()
+        +guardar_circuito()
+        +cargar_circuito()
+        +volverMenu()
+    }
+
+    %% Relación de VentanaPrincipal con VentanaCircuito
+    VentanaPrincipal --> VentanaCircuito
+```
 
 
 ## **Inspiración para la interfaz**
